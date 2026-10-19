@@ -6,7 +6,18 @@
   "scripts": {
     "test": "node --test tests/*.test.mjs",
     "check": "node --check app.js && node --check wallet.js",
-    "dev": "python3 -m http.server 4173 --bind 127.0.0.1"
+    "lint": "node --check app.js && node --check wallet.js",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "dev": "vite --host 127.0.0.1"
   },
-  "engines": {"node": ">=20"}
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "genlayer-js": "1.1.8"
+  },
+  "devDependencies": {
+    "vite": "6.4.4"
+  }
 }

@@ -9,3 +9,5 @@ dist/
 .DS_Store
 *.log
 coverage/
+artifacts/
+frontend/.npm-cache/

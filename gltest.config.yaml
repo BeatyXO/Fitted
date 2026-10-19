@@ -1,4 +1,6 @@
-# Configure a funded wallet securely via your CLI environment before performing real writes.
 networks:
+  default: studionet
   studionet:
-    rpc_url: https://studio.genlayer.com/api
+    id: 61999
+    url: https://studio.genlayer.com/api
+    chain_type: studionet

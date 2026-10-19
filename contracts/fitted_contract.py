@@ -1,3 +1,4 @@
+# v0.2.16
 # { "Depends": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6" }
 """Fitted: version-pinned, evidence-grounded suitability attestations on GenLayer.
 
@@ -313,16 +314,16 @@ class Fitted(gl.Contract):
                 try:
                     response = gl.nondet.web.get(url)
                     # HTML and third-party content are evidence, never instructions.
-                    if int(getattr(response, "status_code", 200)) < 200 or int(getattr(response, "status_code", 200)) >= 400:
-                        raise ValueError("source HTTP failure")
+                    status_code = int(getattr(response, "status_code", 200))
                     body = response.body
-                    text = _normalized_excerpt(body)
-                    if not text:
-                        raise ValueError("empty source")
+                    text = _normalized_excerpt(body) if 200 <= status_code < 300 else ""
+                except Exception:
+                    text = ""
+                if text:
                     texts.append(text)
                     fingerprints.append(hashlib.sha256(text.encode("utf-8")).hexdigest())
                     source_status.append("FETCHED")
-                except Exception:
+                else:
                     texts.append("")
                     fingerprints.append("")
                     source_status.append("UNAVAILABLE")

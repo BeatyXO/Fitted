@@ -1,0 +1,74 @@
+{
+  "network": {
+    "name": "GenLayer StudioNet",
+    "chainId": 61999,
+    "rpc": "https://studio.genlayer.com/api",
+    "explorer": "https://explorer-studio.genlayer.com"
+  },
+  "contractAddress": "0x299B9577A4b03efab9F760715ce6Db5437943cBe",
+  "source": {
+    "path": "contracts/fitted_contract.py",
+    "sha256": "353534db8608bd276e6631fad1b7a8db171c159127da560fa71fa802270f3262",
+    "deployedSourceSha256": "353534db8608bd276e6631fad1b7a8db171c159127da560fa71fa802270f3262",
+    "deployedMatchesLocal": true,
+    "genvmVersion": "v0.2.16",
+    "genlayerCliVersion": "0.39.1",
+    "genlayerTestVersion": "0.29.2",
+    "genvmLinterVersion": "0.11.0",
+    "genlayerJsVersion": "1.1.8"
+  },
+  "deployment": {
+    "transactionHash": "0xea2d3bf0b016742fe10e34e41fba1052855086f74fdd80b449bcd4467443e861",
+    "status": "FINALIZED",
+    "consensusResult": "MAJORITY_AGREE",
+    "executionResult": "SUCCESS",
+    "votesCommitted": 5,
+    "votesRevealed": 5,
+    "validatorVotes": {
+      "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1": "AGREE",
+      "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6": "AGREE",
+      "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44": "IDLE",
+      "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10": "AGREE",
+      "0xA712cB25a4002666FA9D09477251f238dD9e06b3": "IDLE"
+    },
+    "rounds": 1,
+    "valueCredited": false,
+    "submittedValue": "0"
+  },
+  "latestFinalizedReads": {
+    "collectedAt": "2026-10-19T20:46:42.727Z",
+    "contractSchemaMethodCount": 11,
+    "standards": {
+      "items": [],
+      "total": 0
+    },
+    "stats": {
+      "product": "Fitted",
+      "version": "1.0.0",
+      "standards": 0,
+      "candidates": 0,
+      "evaluations": 0,
+      "uses_escrow": false,
+      "network_authority": "contract"
+    }
+  },
+  "failureLogs": [
+    {
+      "transactionHash": "0xb5982b6fb587608580464bde89ea3ac56cf52af7cbd91da5e613623b9b1370ac",
+      "status": "ACCEPTED",
+      "executionError": "requirements must be JSON",
+      "stateChanged": false,
+      "rawLog": "create_standard.log"
+    },
+    {
+      "transactionHash": "0x2dc73e6f4a7011f12f36faa17ed79c8539f88b43002c7e621ef6c83fec0ee25e",
+      "status": "ACCEPTED",
+      "executionError": "requirements must be JSON",
+      "stateChanged": false,
+      "rawLog": "create_standard_fit.log"
+    }
+  ],
+  "accountBalanceBefore": "967.494289999999999984 GEN",
+  "accountBalanceAfter": "967.494289999999999984 GEN",
+  "lifecycle": []
+}

@@ -24,6 +24,6 @@ Fitted intentionally supports injected EIP-1193 wallets. This includes MetaMask-
 
 Cards, hero tiles, stat tiles and form rules have subtle lift and lime glow on hover, with reduced-motion support. Header wallet controls and the dropdown have focus-visible styling, keyboard Escape dismissal, and click-away dismissal. The mobile breakpoints (1440, 390 and 375 px) are covered by local Chromium smoke checks. The browser suite stubs the EIP-1193 wallet **only** to test local UI; it does not fabricate a contract, validators, blockchain network or certificate.
 
-## Unverified integration boundary
+## SDK and transaction integration boundary
 
-The frontend still imports `genlayer-js@1.1.8` at runtime from `esm.sh` **only** when contract reads/writes are requested, due to the current offline container having no npm registry access. Its runtime SDK correctness, chain read/write RPC transport, real provider compatibility, gas estimates and finalized receipt success semantics all need live StudioNet testing before public launch. Production builds should pin/bundle the SDK from an audited lockfile and never rely on a mutable network CDN. See `FITTED_CODEX_HANDOFF.md`.
+The Vite production build bundles the exact-pinned `genlayer-js@1.1.8` package from `package-lock.json`; there is no runtime SDK CDN import. The UI uses the SDK's `writeContract({ value: 0n })`, `waitForTransactionReceipt({ status: TransactionStatus.FINALIZED })`, and checks `ExecutionResult.FINISHED_WITH_RETURN` before refreshing chain state. Live wallet compatibility, StudioNet RPC behavior, fees and finality still require a funded wallet and a reachable StudioNet RPC; these are not established by the browser unit tests or local build.

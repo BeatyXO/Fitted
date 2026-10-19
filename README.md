@@ -2,7 +2,7 @@
 
 **Fitted is not a dispute court.** It is a versioned suitability protocol for evaluating products, services, agents, and technical solutions against explicit human requirements. Applicants publish documentary evidence. Every GenLayer validator independently fetches the same public evidence, interprets each requirement, and agrees on material decision fields. Contract code—not the LLM—computes the final certificate.
 
-**Status:** full contract source, responsive contract-connected frontend, offline contract-boundary test suite, architecture and launch runbooks included. **Not deployed.** This package makes **no claim of on-chain success**, GenVM lint success, or live validator consensus. That verification must happen with GenLayer tooling and an authorized deployer wallet.
+**Status:** deployed to GenLayer StudioNet (chain 61999); GenVM lint, schema validation, typecheck, Direct Mode checks, local production build, and finalized deployment proof are recorded in [`deployments/studionet.json`](deployments/studionet.json). The frontend is built locally and ready for user-managed Vercel deployment. The full on-chain product lifecycle is not yet demonstrated: the deployed registry currently has no standards, candidates, or evaluations. See [`docs/VERIFICATION.md`](docs/VERIFICATION.md) for categorized evidence and remaining limits.
 
 ## Product differentiation
 
@@ -37,19 +37,27 @@ Crossbench (reference: https://github.com/zoefunds/Crossbench) is a two-party, s
 
 ```sh
 python -m pip install pytest
-python -m pytest -q tests/
+python -m pytest tests/ --ignore=tests/test_direct.py -q
 python -m py_compile contracts/fitted_contract.py
 node --check frontend/app.js
 ```
 
-**Frontend preview:**
+**Real GenLayer Direct Mode (mocked web/model boundaries; not StudioNet consensus):**
 
 ```sh
-cd frontend
-python -m http.server 5173
+python -m pytest tests/test_direct.py -q
 ```
 
-Open `http://localhost:5173`. The UI loads without npm. To execute live contract calls, the browser must be allowed to import the pinned `genlayer-js@1.1.8` ESM distribution from `esm.sh` and reach StudioNet. For a hardened production deployment, vendor/build and integrity-pin the SDK instead of relying on a runtime CDN. No test transactions are preloaded or simulated. An unconfigured deployment shows an intentionally empty read-only registry, not demo data.
+**Frontend development and production build:**
+
+```sh
+npm --prefix frontend ci
+npm --prefix frontend test
+npm --prefix frontend run build
+npm --prefix frontend run dev
+```
+
+The Vite production build bundles the exact-locked `genlayer-js@1.1.8` dependency locally. No runtime SDK CDN is used. No test transactions are preloaded or simulated. An unconfigured deployment shows an intentionally empty read-only registry, not demo data.
 
 **Deploy and verify:** follow [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md). The contract constructor has no parameters. After deployment, enter the real address in the dashboard. The URL parameter `?contract=0x...` is supported for sharing a read-only registry view.
 
@@ -90,5 +98,5 @@ The project benchmarked the publicly available Crossbench source and GenLayer's 
 
 ## v1.1 wallet and UI hardening
 
-See docs/FRONTEND_WALLET.md. Local suite: 69 Python tests, 10 Node wallet tests, Chromium UI checks at 1440/390/375px. The runtime SDK still needs pinned bundling and live StudioNet proofs.
+See docs/FRONTEND_WALLET.md. Local suite: 69 Python offline boundary tests and 7 Direct Mode tests; 10 Node wallet tests. The SDK is pinned and bundled locally. Deployment and read-only registry reads finalized on StudioNet; live lifecycle writes and production hosting remain outstanding.
 

@@ -41,4 +41,4 @@ Source paths: `README.md`, `ARCHITECTURE.md`, `contracts/crossbench_contract.py`
 
 ## Honest current comparison
 
-Fitted already differs significantly in product concept and implements deterministic/AI boundaries with an offline passing suite, but **it cannot yet be said to match Crossbench's demonstrated live deployment engineering, let alone exceed its score**. The critical next step is real multi-validator and frontend acceptance testing, followed by targeted fixes and a second independent audit.
+Fitted now has a verified StudioNet deployment, matching local/deployed source hash, successful GenVM checks, a bundled SDK build, and separate offline and Direct Mode suites. It still cannot be said to match Crossbench's demonstrated lifecycle engineering or exceed its score: Fitted's on-chain registry is empty, and real standard/candidate/evaluation/revision/retirement transactions have not been demonstrated. Public frontend deployment is intentionally left to the user. Numerical comparative scores remain unknown because no judge rubric or independently verifiable score was available.

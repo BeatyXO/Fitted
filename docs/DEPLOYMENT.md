@@ -1,6 +1,6 @@
 # Fitted StudioNet deployment and acceptance runbook
 
-**No deployment has been performed for this generated project.** The instructions below are actions for an authorized user or connected Codex session with GenLayer tools, not evidence of a completed run.
+**StudioNet deployment completed** at `0x299B9577A4b03efab9F760715ce6Db5437943cBe`; deployment evidence is in [`../deployments/studionet.json`](../deployments/studionet.json). Lint, Direct Mode, and source-hash checks passed before deployment. The complete post-deploy lifecycle has not passed: the registry is empty and the first standard write attempts rolled back input validation. The procedures below remain the acceptance checklist for those remaining chain interactions.
 
 ## Preparation
 
@@ -15,7 +15,8 @@
 python -m pytest tests/ -q
 python -m py_compile contracts/fitted_contract.py
 node --check frontend/app.js
-# The following commands MUST be executed in an environment with GenLayer tools installed:
+# Pin the exact deployed runner for the GenVM linter (PowerShell):
+$env:GENVM_VERSION = 'v0.2.16'
 genvm-lint check contracts/fitted_contract.py --json
 # Generate/check schema with your CLI version (flags vary across releases):
 genlayer schema --contract contracts/fitted_contract.py
@@ -53,7 +54,7 @@ Perform **at least** the following actions using funded testnet wallets. Preserv
 
 ## Frontend
 
-`frontend/` is a dependency-free static page that loads `genlayer-js@1.1.8` ESM from `esm.sh` **only when blockchain interaction is needed**. This is suitable for evaluating the UI structure but **not a reproducible audited production supply chain**. Before public launch, vendor/bundle a compatible and exact-locked SDK, add integrity checking, run production build and regression checks, and validate the specific wallet provider API against current StudioNet. Never switch successful transaction status to a submitted or merely accepted stage.
+`frontend/` pins `genlayer-js@1.1.8` and Vite in its lockfile and bundles the SDK locally. The production build and frontend tests have passed. The user plans to publish the built frontend to Vercel after handoff. Never switch successful transaction status to a submitted or merely accepted stage.
 
 After a verified deployment, publish the frontend to a static host with HTTPS. Users can set its contract address in the form, or share a verified URL such as `https://your-host.example/?contract=0x...#/overview`. Do not supply an invented default address.
 
