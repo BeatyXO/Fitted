@@ -39,3 +39,10 @@
 @media(max-width:640px){.wallet-control .btn{min-width:0}.btn-network{max-width:108px;white-space:normal;line-height:1.2}.wallet-menu{right:0}.topbar-actions{gap:5px}}
 @media(max-width:380px){.topbar .breadcrumb{font-size:9px}.topbar .wallet-control .btn{font-size:10px;padding:9px 8px}.btn-network{max-width:95px;font-size:9px;padding:7px 8px}}
 @media(prefers-reduced-motion:reduce){.panel,.hero-card,.stat,.data-row,.config,.rule,.certificate-banner,.btn{transition:none!important;transform:none!important}*{scroll-behavior:auto!important}}
+/* On small screens display every workspace destination rather than hiding later tabs offscreen. */
+@media(max-width:640px){
+  .nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible;gap:5px}
+  .nav-item{min-width:0;min-height:40px;display:flex;justify-content:center;align-items:center;gap:7px;padding:9px 5px;white-space:normal;text-align:center;font-size:10.5px}
+  .nav-icon{flex-shrink:0;font-size:14px}
+  .brand{padding-bottom:13px}
+}
