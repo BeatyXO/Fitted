@@ -1,0 +1,31 @@
+# Security model and known limitations
+
+| Concern | Control | Residual issue |
+|---|---|---|
+| Forged standard ownership | `gl.message.sender_address` controls revise/retire | Wallet compromise remains possible |
+| Future standards rewriting earlier submissions | Immutable version snapshots and pinned application version | No migration/revocation of old certificates |
+| Score fabrication | Deterministic code calculates outcome and score | AI remains responsible for qualitative per-rule classification |
+| Hallucinated quotes | Quote must be a literal 10–160-character substring of retrieved normalized text | A real quote can still be misleading or context-free |
+| Fake evidence source | HTTPS/public-source restrictions, citation/provenance grades | A public web page can be fraudulent, claim ownership falsely, or change |
+| Link alias / duplicated self-evidence | Canonical URLs deduplicated within submission | Two unrelated URLs could repeat identical content; no cross-URL semantic dedupe in v1 |
+| SSRF | No private IP literals, localhost/local suffixes, credentials, nonstandard ports, fragments or major shorteners | DNS rebinding and redirects require network sandbox policy |
+| Prompt injection | Bounded quoted evidence supplied as data, independent validator re-evaluation | Cannot prove all malicious instructions are neutralized |
+| Leader manipulates fit | Validator independently judges and compares complete material tuple | Validator models could share biases/errors and still agree |
+| Divergent model decisions | Exact decision/quality agreement, no score tolerance that could flip mandatory gate | Higher consensus failure rate on ambiguous requirements |
+| Unavailable sources | Explicit UNAVAILABLE and unknown, no success inference from 404/errors | Models can still be wrong about source reliability or relevance |
+| Consensus rollback | No escrow, pending submission remains retryable | No guaranteed consensus or timed completion under chain failure |
+| Offchain authority escalation | All writes signed directly by user's wallet; backend-free UI | Compromised CDN/website may induce misleading wallet prompts |
+| Silent front-end success | Waits for finalization + SDK `isSuccessful`, then refreshes | SDK runtime import/version and wallet-provider interoperability need live testing |
+| Denial of service | Max 6 requirements, 4 sources, 24-row read pages; no unbounded contract list read | Onchain registry storage and repeated failed evaluations still cost user/network resources |
+
+## Threat assumptions
+
+GenLayer validators and their sandbox enforce applicable RPC, DNS and networking boundaries. This contract does not control redirected target IPs or TLS certificate inspection performed by the runtime. A certificate reports that independent validators agreed on material classifications against evidence observed at the time; it does not assert that any underlying commercial product works as promised.
+
+## Remaining work before a high-stakes launch
+
+- Run `genvm-lint`, Direct Mode and StudioNet execution with real model providers and more than one validator.
+- Stress prompt injection, contradictory source content, HTML entities, source mutability, redirect chains, long static pages, and low-trust source provenance.
+- Test fee estimates, validator rotation, pending or reverted transaction accounting, and wallet reconnect paths on the exact target SDK.
+- Consider content pinning/archive and a time-bound certificate lifecycle with explicit revocation or recheck mechanics.
+- Vendor frontend's runtime SDK and pin package integrity in a reproducible production build. The CDN-based preview is **not** a security-hardened deployment.

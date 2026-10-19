@@ -1,0 +1,35 @@
+name: Fitted verification
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  contract-offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install --disable-pip-version-check pytest
+      - run: python -m py_compile contracts/fitted_contract.py
+      - run: python -m pytest tests/ -q
+  wallet-ui:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: cd frontend && npm run check && npm test
+  browser-responsive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install --disable-pip-version-check playwright
+      - run: python -m playwright install --with-deps chromium
+      - run: python tests/browser_smoke.py
