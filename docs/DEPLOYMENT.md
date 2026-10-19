@@ -1,6 +1,6 @@
 # Fitted StudioNet deployment and acceptance runbook
 
-**StudioNet deployment completed** at `0x299B9577A4b03efab9F760715ce6Db5437943cBe`; deployment evidence is in [`../deployments/studionet.json`](../deployments/studionet.json). Lint, Direct Mode, and source-hash checks passed before deployment. The complete post-deploy lifecycle has not passed: the registry is empty and the first standard write attempts rolled back input validation. The procedures below remain the acceptance checklist for those remaining chain interactions.
+**StudioNet deployment and core lifecycle completed** at `0x299B9577A4b03efab9F760715ce6Db5437943cBe`; evidence is in [`../deployments/studionet.json`](../deployments/studionet.json) and [`../deployments/lifecycle_transactions.json`](../deployments/lifecycle_transactions.json). Real finalized transactions now demonstrate FIT, CONDITIONAL, UNFIT, and UNVERIFIED; standard creation, revision with a pinned prior version, duplicate-evaluation rejection, and retirement were verified by post-finalization reads. The remaining release gates are public Vercel deployment, wallet-signed browser acceptance, and follow-up security/stress review. The procedures below remain the reproducible runbook.
 
 ## Preparation
 

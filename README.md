@@ -2,7 +2,7 @@
 
 **Fitted is not a dispute court.** It is a versioned suitability protocol for evaluating products, services, agents, and technical solutions against explicit human requirements. Applicants publish documentary evidence. Every GenLayer validator independently fetches the same public evidence, interprets each requirement, and agrees on material decision fields. Contract code—not the LLM—computes the final certificate.
 
-**Status:** deployed to GenLayer StudioNet (chain 61999); GenVM lint, schema validation, typecheck, Direct Mode checks, local production build, and finalized deployment proof are recorded in [`deployments/studionet.json`](deployments/studionet.json). The frontend is built locally and ready for user-managed Vercel deployment. The full on-chain product lifecycle is not yet demonstrated: the deployed registry currently has no standards, candidates, or evaluations. See [`docs/VERIFICATION.md`](docs/VERIFICATION.md) for categorized evidence and remaining limits.
+**Status:** deployed to GenLayer StudioNet (chain 61999). GenVM lint, schema validation, typecheck, Direct Mode checks, and finalized proof for all four certificate outcomes and the core standard lifecycle are recorded in [`deployments/studionet.json`](deployments/studionet.json) and [`deployments/lifecycle_transactions.json`](deployments/lifecycle_transactions.json). The frontend is built locally and ready for user-managed Vercel deployment. See [`docs/VERIFICATION.md`](docs/VERIFICATION.md) for categorized evidence and remaining limits.
 
 ## Product differentiation
 

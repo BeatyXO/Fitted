@@ -36,39 +36,439 @@
     "submittedValue": "0"
   },
   "latestFinalizedReads": {
-    "collectedAt": "2026-10-19T20:46:42.727Z",
+    "collectedAt": "2026-10-19T22:07:16Z",
     "contractSchemaMethodCount": 11,
-    "standards": {
-      "items": [],
-      "total": 0
-    },
     "stats": {
       "product": "Fitted",
       "version": "1.0.0",
-      "standards": 0,
-      "candidates": 0,
-      "evaluations": 0,
+      "standards": 4,
+      "candidates": 5,
+      "evaluations": 5,
       "uses_escrow": false,
       "network_authority": "contract"
-    }
+    },
+    "standards": [
+      {
+        "id": "FIT-1",
+        "currentVersion": 2,
+        "active": false
+      },
+      {
+        "id": "FIT-2",
+        "currentVersion": 1,
+        "active": true
+      },
+      {
+        "id": "FIT-3",
+        "currentVersion": 1,
+        "active": true
+      },
+      {
+        "id": "FIT-4",
+        "currentVersion": 1,
+        "active": true
+      }
+    ],
+    "applications": [
+      {
+        "id": "APP-1",
+        "standard": "FIT-1",
+        "version": 1,
+        "outcome": "FIT",
+        "certificateDigest": "450bd91e6a6dbb3043e0d24f598fcccf208ce8be0213bcc4ccbbcc2c166807ee"
+      },
+      {
+        "id": "APP-2",
+        "standard": "FIT-1",
+        "version": 2,
+        "outcome": "CONDITIONAL",
+        "certificateDigest": "32806f81b466a5906e9c1e0911eada0414a39baa106ed666f35b446b26d7d816"
+      },
+      {
+        "id": "APP-3",
+        "standard": "FIT-2",
+        "version": 1,
+        "outcome": "UNVERIFIED",
+        "certificateDigest": "235ac46b56abfd0de341bff4ffa75a7202f81b583572d274b01211bbd73cdc45"
+      },
+      {
+        "id": "APP-4",
+        "standard": "FIT-3",
+        "version": 1,
+        "outcome": "UNFIT",
+        "certificateDigest": "265107c10ab8901c7f03b3553e43d9b90140eeb48ed9755f24fe04df43b8f25f"
+      },
+      {
+        "id": "APP-5",
+        "standard": "FIT-4",
+        "version": 1,
+        "outcome": "UNVERIFIED",
+        "certificateDigest": "3cf37ac6443bd47b126bf2a7efe6ed3db1ec784eac7c1387e42276ec74168b82"
+      }
+    ]
   },
   "failureLogs": [
     {
       "transactionHash": "0xb5982b6fb587608580464bde89ea3ac56cf52af7cbd91da5e613623b9b1370ac",
-      "status": "ACCEPTED",
-      "executionError": "requirements must be JSON",
-      "stateChanged": false,
-      "rawLog": "create_standard.log"
+      "error": "requirements must be JSON",
+      "stateChanged": false
     },
     {
       "transactionHash": "0x2dc73e6f4a7011f12f36faa17ed79c8539f88b43002c7e621ef6c83fec0ee25e",
-      "status": "ACCEPTED",
-      "executionError": "requirements must be JSON",
-      "stateChanged": false,
-      "rawLog": "create_standard_fit.log"
+      "error": "requirements must be JSON",
+      "stateChanged": false
+    },
+    {
+      "transactionHash": "0xe66587de612810fcf356bb2c3170de6be167df35176e06c34f873ef9a9e6da24",
+      "error": "requirements must be JSON",
+      "stateChanged": false
+    },
+    {
+      "transactionHash": "0xaa2ed3f3a839e00af7b9de0481753d3387d9df99c2c7228ed5e304a61193ad0d",
+      "error": "require 1-6 requirements",
+      "stateChanged": false
+    },
+    {
+      "transactionHash": "0x0e8afb0549b2e244eee7c9f1ae27e753e87803aaafa9137db3d6fa364c75f7c1",
+      "error": "require 1-6 requirements",
+      "stateChanged": false
+    },
+    {
+      "transactionHash": "0x166bee42cae3035380fc222b4c1f197f4cb01afa8ff770e6c3e3c572db01d710",
+      "error": "requirement id length invalid",
+      "stateChanged": false
     }
   ],
   "accountBalanceBefore": "967.494289999999999984 GEN",
   "accountBalanceAfter": "967.494289999999999984 GEN",
-  "lifecycle": []
+  "lifecycle": [
+    {
+      "action": "create_standard FIT-1",
+      "transaction": {
+        "hash": "0x2300568da7d96d27f09f3f21eb0928097037c9b64bec6616a5e386d2229825a7",
+        "status": "FINALIZED",
+        "consensusResult": "MAJORITY_AGREE",
+        "validatorVotes": {
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef": "agree",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb": "agree",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004": "agree",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10": "agree",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19": "idle"
+        }
+      },
+      "postFinalizedRead": {
+        "standardId": "FIT-1",
+        "active": true,
+        "currentVersion": 1
+      }
+    },
+    {
+      "action": "evaluate APP-1 / FIT",
+      "transaction": {
+        "hash": "0x92d2f96a9c760b7cd16621cc92eadafd8bdcd86954857514d8688e32109caebe",
+        "status": "FINALIZED",
+        "consensusResult": "MAJORITY_AGREE",
+        "validatorVotes": {
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D": "agree",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb": "idle",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1": "agree",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19": "agree",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21": "disagree"
+        }
+      },
+      "postFinalizedRead": {
+        "applicationId": "APP-1",
+        "standardVersion": 1,
+        "outcome": "FIT",
+        "certificateDigest": "450bd91e6a6dbb3043e0d24f598fcccf208ce8be0213bcc4ccbbcc2c166807ee"
+      }
+    },
+    {
+      "action": "revise_standard FIT-1 to v2",
+      "transaction": {
+        "hash": "0x3b4f5e240f3b4c7c423edd0f46318fc03623f2f5c895918cc80ef2d1c48bbad9",
+        "status": "FINALIZED",
+        "consensusResult": "MAJORITY_AGREE",
+        "validatorVotes": {
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D": "agree",
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9": "agree",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44": "agree",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19": "agree",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43": "agree"
+        }
+      },
+      "postFinalizedRead": {
+        "standardId": "FIT-1",
+        "currentVersion": 2,
+        "version1StillReadable": true
+      }
+    },
+    {
+      "action": "submit APP-2",
+      "transaction": {
+        "hash": "0x899909a075e2db4d76f37abcf06354a78b198251f7dcab986d659c31e18e7218",
+        "status": "FINALIZED",
+        "consensusResult": "MAJORITY_AGREE",
+        "validatorVotes": {
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D": "agree",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05": "idle",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44": "agree",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3": "agree",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19": "idle"
+        }
+      },
+      "postFinalizedRead": {
+        "applicationId": "APP-2",
+        "standardId": "FIT-1",
+        "standardVersion": 2,
+        "status": "PENDING"
+      }
+    },
+    {
+      "action": "evaluate APP-2 / CONDITIONAL",
+      "transaction": {
+        "hash": "0xc17ca1c991b579893b0783e0457e5e87749029aa467808e2548f4a3ca6bbb54b",
+        "status": "FINALIZED",
+        "consensusResult": "MAJORITY_AGREE",
+        "validatorVotes": {
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef": "agree",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05": "idle",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43": "agree",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd": "agree",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21": "disagree"
+        }
+      },
+      "postFinalizedRead": {
+        "applicationId": "APP-2",
+        "standardVersion": 2,
+        "outcome": "CONDITIONAL",
+        "certificateDigest": "32806f81b466a5906e9c1e0911eada0414a39baa106ed666f35b446b26d7d816"
+      }
+    },
+    {
+      "action": "create_standard FIT-2",
+      "transaction": {
+        "hash": "0x7b6b96f9ef1a063c73dea0eafa55cd34c639b27aece770e569a701c5f3a31a7a",
+        "status": "FINALIZED",
+        "consensusResult": "MAJORITY_AGREE",
+        "validatorVotes": {
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D": "agree",
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef": "agree",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05": "agree",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6": "idle",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091": "idle"
+        }
+      },
+      "postFinalizedRead": {
+        "standardId": "FIT-2",
+        "active": true,
+        "currentVersion": 1
+      }
+    },
+    {
+      "action": "submit APP-3",
+      "transaction": {
+        "hash": "0x5525a6a82b546c8ad18f9d0ea61186cd5a76d8bc37f24f4f5bc93c97596d6da8",
+        "status": "FINALIZED",
+        "consensusResult": "MAJORITY_AGREE",
+        "validatorVotes": {
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e": "agree",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6": "agree",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44": "agree",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004": "agree",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091": "agree"
+        }
+      },
+      "postFinalizedRead": {
+        "applicationId": "APP-3",
+        "standardId": "FIT-2",
+        "standardVersion": 1,
+        "status": "PENDING"
+      }
+    },
+    {
+      "action": "evaluate APP-3 / UNVERIFIED",
+      "transaction": {
+        "hash": "0x822c7d141066335150fa5c52336d1dbe8a00341f192ca0f71f789c8e7638a19f",
+        "status": "FINALIZED",
+        "consensusResult": "MAJORITY_AGREE",
+        "validatorVotes": {
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9": "agree",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1": "disagree",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10": "disagree",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43": "agree",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530": "agree"
+        }
+      },
+      "postFinalizedRead": {
+        "applicationId": "APP-3",
+        "outcome": "UNVERIFIED",
+        "certificateDigest": "235ac46b56abfd0de341bff4ffa75a7202f81b583572d274b01211bbd73cdc45"
+      }
+    },
+    {
+      "action": "create_standard FIT-3",
+      "transaction": {
+        "hash": "0x37493fb69331abc41c51038dad341ff6572c64388c506baf4c9adc3891f128a9",
+        "status": "FINALIZED",
+        "consensusResult": "MAJORITY_AGREE",
+        "validatorVotes": {
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05": "agree",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb": "agree",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004": "agree",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3": "agree",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd": "agree"
+        }
+      },
+      "postFinalizedRead": {
+        "standardId": "FIT-3",
+        "active": true,
+        "currentVersion": 1
+      }
+    },
+    {
+      "action": "submit APP-4",
+      "transaction": {
+        "hash": "0xe97add25ace82f9b03f9f846a15d61bf0083006d72044c294324524d5c9d33e4",
+        "status": "FINALIZED",
+        "consensusResult": "MAJORITY_AGREE",
+        "validatorVotes": {
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00": "idle",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1": "agree",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e": "agree",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd": "idle",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091": "agree"
+        }
+      },
+      "postFinalizedRead": {
+        "applicationId": "APP-4",
+        "standardId": "FIT-3",
+        "standardVersion": 1,
+        "status": "PENDING"
+      }
+    },
+    {
+      "action": "evaluate APP-4 / UNFIT",
+      "transaction": {
+        "hash": "0xf08a92d11e7e8befb7ec6cae581eea03926a3d2d38698c11af72b4cf7933f6a1",
+        "status": "FINALIZED",
+        "consensusResult": "MAJORITY_AGREE",
+        "validatorVotes": {
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb": "idle",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e": "agree",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10": "agree",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3": "agree",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19": "idle"
+        }
+      },
+      "postFinalizedRead": {
+        "applicationId": "APP-4",
+        "outcome": "UNFIT",
+        "certificateDigest": "265107c10ab8901c7f03b3553e43d9b90140eeb48ed9755f24fe04df43b8f25f"
+      }
+    },
+    {
+      "action": "create_standard FIT-4",
+      "transaction": {
+        "hash": "0xcec7020a7988496a691722afb345354d7f4cb618fff5e283491799eefbec0317",
+        "status": "FINALIZED",
+        "consensusResult": "MAJORITY_AGREE",
+        "validatorVotes": {
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00": "agree",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10": "idle",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43": "agree",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530": "idle",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21": "agree"
+        }
+      },
+      "postFinalizedRead": {
+        "standardId": "FIT-4",
+        "active": true,
+        "currentVersion": 1
+      }
+    },
+    {
+      "action": "submit APP-5",
+      "transaction": {
+        "hash": "0x1f2a3a7beff7c573b726bbda6a987cb7e01678097aa3376c9ef5c7f8396306c9",
+        "status": "FINALIZED",
+        "consensusResult": "MAJORITY_AGREE",
+        "validatorVotes": {
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9": "agree",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44": "idle",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3": "agree",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19": "agree",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21": "idle"
+        }
+      },
+      "postFinalizedRead": {
+        "applicationId": "APP-5",
+        "standardId": "FIT-4",
+        "standardVersion": 1,
+        "status": "PENDING"
+      }
+    },
+    {
+      "action": "evaluate APP-5 / UNVERIFIED",
+      "transaction": {
+        "hash": "0x7ad69e5a03be1a83f82286cb3e0c2b8ff776f9330186c42efcc01f32926e4cec",
+        "status": "FINALIZED",
+        "consensusResult": "MAJORITY_AGREE",
+        "validatorVotes": {
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9": "agree",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05": "agree",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3": "idle",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19": "idle",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530": "agree"
+        }
+      },
+      "postFinalizedRead": {
+        "applicationId": "APP-5",
+        "outcome": "UNVERIFIED",
+        "certificateDigest": "3cf37ac6443bd47b126bf2a7efe6ed3db1ec784eac7c1387e42276ec74168b82"
+      }
+    },
+    {
+      "action": "duplicate evaluation rejected",
+      "transaction": {
+        "hash": "0xdfc6a2db7c35338f10277eaf8b264bd0b405199aa5107dc6f2ab345cf202e7b8",
+        "status": "FINALIZED",
+        "consensusResult": "MAJORITY_AGREE",
+        "validatorVotes": {
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9": "agree",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb": "agree",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb": "idle",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e": "idle",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19": "agree"
+        }
+      },
+      "postFinalizedRead": {
+        "applicationId": "APP-1",
+        "error": "candidate already evaluated",
+        "originalCertificateUnchanged": true
+      }
+    },
+    {
+      "action": "retire_standard FIT-1",
+      "transaction": {
+        "hash": "0xf30f9201f6d4eb0db2c2c087746eb12d2acd759db0772a8575f59191b7ae3874",
+        "status": "FINALIZED",
+        "consensusResult": "MAJORITY_AGREE",
+        "validatorVotes": {
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D": "agree",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10": "agree",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19": "agree",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43": "agree",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd": "agree"
+        }
+      },
+      "postFinalizedRead": {
+        "standardId": "FIT-1",
+        "active": false,
+        "currentVersion": 2,
+        "APP1CertificateReadable": true,
+        "APP2CertificateReadable": true
+      }
+    }
+  ]
 }
