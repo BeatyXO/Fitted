@@ -1,6 +1,6 @@
 # Fitted StudioNet deployment and acceptance runbook
 
-**Hardened StudioNet deployment and core lifecycle completed** at `0xCFd6184ad5589a329E8F89984d2FfEc98607cD72`; see [`../deployments/studionet_hardened.json`](../deployments/studionet_hardened.json) for the source hash, finalized deployment and lifecycle receipts, validator votes, and state readbacks. The earlier deployment is retained as history. The hardened source compares evidence fingerprints across validators and revalidates accepted judgments after the nondeterministic boundary. Local frontend checks and live read-only chain interaction passed. The user will publish the frontend to Vercel; additional adversarial security and stress review remain useful follow-up.
+**Hardened StudioNet deployment and core lifecycle completed** at [`0xCFd6184ad5589a329E8F89984d2FfEc98607cD72`](https://explorer-studio.genlayer.com/address/0xCFd6184ad5589a329E8F89984d2FfEc98607cD72), chain ID `61999`; see [`../deployments/studionet_hardened.json`](../deployments/studionet_hardened.json) for source fingerprint, finalized deployment and lifecycle receipts, validator votes, and readbacks. Source SHA-256: `9abff3f3aeb83b6d2f69fb2c6032d7bbacc03bd627fd703bec9bcca4145e00b7`. The earlier deployment remains historical. The frontend is live at [https://fitted-lake.vercel.app/](https://fitted-lake.vercel.app/) and production read-only checks confirmed the deployed registry. Production wallet-signed browser writes remain unverified because the connected Chrome profile has no injected wallet provider. Additional adversarial security and stress review remain useful follow-up.
 
 ## Preparation
 
@@ -57,7 +57,7 @@ Perform **at least** the following actions using funded testnet wallets. Preserv
 
 `frontend/` pins `genlayer-js@1.1.8` and Vite in its lockfile and bundles the SDK locally. The production build and frontend tests have passed. The site is live at [https://fitted-lake.vercel.app/](https://fitted-lake.vercel.app/) and displays the hardened deployment’s live registry. Never switch successful transaction status to a submitted or merely accepted stage.
 
-After a verified deployment, publish the frontend to a static host with HTTPS. On Vercel, optionally set `VITE_CONTRACT_ADDRESS` to the deployed contract address for the Production, Preview, and Development environments you use, then redeploy. The frontend also accepts a `?contract=0x...` URL parameter, which overrides the environment value, or the address can be entered in the dashboard. Do not supply an invented default address.
+The production frontend is already live at [https://fitted-lake.vercel.app/](https://fitted-lake.vercel.app/). On Vercel, optionally set `VITE_CONTRACT_ADDRESS` to the deployed contract address for Production, Preview, and Development, then redeploy after a frontend change. The frontend also accepts a `?contract=0x...` URL parameter, which overrides the environment value, or the address can be entered in the dashboard. Do not supply an invented default address.
 
 ## Provenance checklist to include in the final submission
 
