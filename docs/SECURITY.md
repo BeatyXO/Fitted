@@ -15,7 +15,7 @@
 | Unavailable sources | Explicit UNAVAILABLE and unknown, no success inference from 404/errors | Models can still be wrong about source reliability or relevance |
 | Consensus rollback | No escrow, pending submission remains retryable | No guaranteed consensus or timed completion under chain failure |
 | Offchain authority escalation | All writes signed directly by user's wallet; backend-free UI | Compromised CDN/website may induce misleading wallet prompts |
-| Silent front-end success | Waits for SDK `TransactionStatus.FINALIZED`, requires `ExecutionResult.FINISHED_WITH_RETURN`, then refreshes | Production signed-write flow and wallet-provider interoperability remain unverified; local UI smoke uses a test-only provider double |
+| Silent front-end success | Waits for SDK `TransactionStatus.FINALIZED`, recognizes the normalized successful result and conservatively checks raw StudioNet execution receipts, then refreshes | One production standard creation was verified; candidate/evaluation writes and recovery paths remain unverified; local UI smoke uses a test-only provider double |
 | Lost pending receipt | Stores only the public tx hash, contract, account, method and local submission time; recovery polls the original hash and never resubmits | Browser local storage can be cleared; users can recover the tx independently from the public explorer |
 | Denial of service | Max 6 requirements, 4 sources, 24-row read pages; no unbounded contract list read | Onchain registry storage and repeated failed evaluations still cost user/network resources |
 
@@ -29,4 +29,4 @@ GenLayer validators and their sandbox enforce applicable RPC, DNS and networking
 - Stress prompt injection, contradictory source content, HTML entities, source mutability, redirect chains, long static pages, and low-trust source provenance.
 - Test fee estimates, validator rotation, pending or reverted transaction accounting, and wallet reconnect paths on the exact target SDK.
 - Consider content pinning/archive and a time-bound certificate lifecycle with explicit revocation or recheck mechanics.
-- Verify the live Vercel URL after each frontend release. One wallet-signed `create_standard` production write and registry readback were verified on 2026-10-20. The old deployed bundle misreported its successful receipt; the local parser fix must be deployed and verified. Candidate/evaluation writes, disconnect/reconnect, account changes, and production pending recovery remain unverified.
+- Verify the live Vercel URL after each frontend release. One wallet-signed `create_standard` production write and registry readback were verified on 2026-10-20. The old frontend misreported its successful receipt; the parser fix is committed to `main` and passes CI. Candidate/evaluation writes, disconnect/reconnect, account changes, and production pending recovery remain unverified.
