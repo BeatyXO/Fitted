@@ -57,7 +57,7 @@ Perform **at least** the following actions using funded testnet wallets. Preserv
 
 `frontend/` pins `genlayer-js@1.1.8` and Vite in its lockfile and bundles the SDK locally. The production build and frontend tests have passed. The site is live at [https://fitted-lake.vercel.app/](https://fitted-lake.vercel.app/) and displays the hardened deployment’s live registry. Never switch successful transaction status to a submitted or merely accepted stage.
 
-The production frontend is already live at [https://fitted-lake.vercel.app/](https://fitted-lake.vercel.app/). On Vercel, optionally set `VITE_CONTRACT_ADDRESS` to the deployed contract address for Production, Preview, and Development, then redeploy after a frontend change. The frontend also accepts a `?contract=0x...` URL parameter, which overrides the environment value, or the address can be entered in the dashboard. Do not supply an invented default address.
+The frontend is live at [https://fitted-lake.vercel.app/](https://fitted-lake.vercel.app/) and production reads were verified. After the GitHub remediation push, the URL still served the previous JavaScript bundle; deploy the latest `main` commit in the existing Vercel project to publish the RPC-error-state fix. The available Vercel CLI account cannot inspect that project, so the project owner must perform this deployment. Optionally set `VITE_CONTRACT_ADDRESS` to the deployed contract address for Production, Preview, and Development, then redeploy after frontend changes. The frontend also accepts a `?contract=0x...` URL parameter, which overrides the environment value, or the address can be entered in the dashboard. Do not supply an invented default address.
 
 ## Provenance checklist to include in the final submission
 

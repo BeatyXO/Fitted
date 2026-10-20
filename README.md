@@ -98,5 +98,5 @@ The project benchmarked the publicly available Crossbench source and GenLayer's 
 
 ## v1.1 wallet and UI hardening
 
-See docs/FRONTEND_WALLET.md. Verification: 70 offline contract tests, 7 Direct Mode tests, 10 Node wallet tests, and Chromium smoke checks against the Vite production bundle at 1440px, 390px, and 375px. The live frontend is [fitted-lake.vercel.app](https://fitted-lake.vercel.app/). Production read-only checks confirmed 3 standards, 4 candidates, and 4 finalized certificates at the hardened deployment. Browser-signed writes still require a connected wallet and user approval; see [`docs/VERIFICATION.md`](docs/VERIFICATION.md).
+See docs/FRONTEND_WALLET.md. Verification: 70 offline contract tests, 7 Direct Mode tests, 10 Node wallet tests, and Chromium smoke checks against the Vite production bundle at 1440px, 390px, and 375px. The live frontend is [fitted-lake.vercel.app](https://fitted-lake.vercel.app/); its current prior build reads 3 standards, 4 candidates, and 4 finalized certificates from the hardened deployment. The latest main commit contains a frontend RPC-error-state fix that still needs deployment in the existing Vercel project. Browser-signed writes also require a connected wallet and user approval; see [`docs/VERIFICATION.md`](docs/VERIFICATION.md).
 
