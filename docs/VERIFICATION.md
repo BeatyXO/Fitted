@@ -29,7 +29,7 @@
 
 - GitHub repository: [BeatyXO/Fitted](https://github.com/BeatyXO/Fitted), `main`.
 - The previously inspected failed run was [39409434960](https://github.com/BeatyXO/Fitted/actions/runs/39409434960). Its browser job evaluated raw ES module source with `page.evaluate`, causing `Cannot use 'import.meta' outside a module`. The replacement smoke test runs the built Vite app through `vite preview` and Chromium.
-- Final CI result: **pending push and GitHub Actions execution**. Update this record with the final commit SHA and Actions URL only after that run completes.
+- Remediation commit `b8dbf7c091dcf3e8fac9173b3d985af92bd4a7f4` was pushed to `main`. Its [GitHub Actions run 39413527043](https://github.com/BeatyXO/Fitted/actions/runs/39413527043) completed successfully: `contract-offline`, `contract-direct`, `wallet-ui`, and `browser-responsive` all passed. The documentation-only follow-up is being pushed separately and triggers the final validation run.
 - Vercel production: [fitted-lake.vercel.app](https://fitted-lake.vercel.app/).
 - Contract explorer: [StudioNet contract page](https://explorer-studio.genlayer.com/address/0xCFd6184ad5589a329E8F89984d2FfEc98607cD72).
 
