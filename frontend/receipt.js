@@ -5,7 +5,8 @@
  */
 export function isSuccessfulFinalizedExecution(receipt, expectedSuccess = 'FINISHED_WITH_RETURN') {
   if (receipt?.txExecutionResultName != null) {
-    return receipt.txExecutionResultName === expectedSuccess;
+    if (receipt.txExecutionResultName === expectedSuccess) return true;
+    if (receipt.txExecutionResultName === 'FINISHED_WITH_ERROR' || receipt.txExecutionResultName === 'NOT_VOTED') return false;
   }
 
   const status = receipt?.statusName ?? receipt?.status_name;
@@ -16,9 +17,11 @@ export function isSuccessfulFinalizedExecution(receipt, expectedSuccess = 'FINIS
   }
 
   const leader = executions.find(entry => entry?.mode === 'leader');
-  return Boolean(leader && executions.every(entry =>
-    entry?.execution_result === 'SUCCESS' && !entry?.genvm_result?.error_code
-  ));
+  // GenLayer cancels validators after quorum. Those entries can say ERROR with
+  // CONSENSUS_VALIDATOR_QUORUM_REACHED even though the leader executed the
+  // accepted transaction successfully. The finalized majority and leader
+  // execution determine whether the contract call succeeded.
+  return Boolean(leader && leader.execution_result === 'SUCCESS' && !leader?.genvm_result?.error_code);
 }
 
 export function receiptStatusLabel(receipt) {
