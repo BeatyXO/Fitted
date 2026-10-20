@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "node --test tests/*.test.mjs",
-    "check": "node --check app.js && node --check wallet.js",
-    "lint": "node --check app.js && node --check wallet.js",
+    "check": "node --check app.js && node --check wallet.js && node --check receipt.js",
+    "lint": "node --check app.js && node --check wallet.js && node --check receipt.js",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
     "dev": "vite --host 127.0.0.1"
