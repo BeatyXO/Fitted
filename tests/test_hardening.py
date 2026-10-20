@@ -134,3 +134,25 @@ def test_non_utf8_bytes_dont_crash_text_normalization(harness):
     mod,c,gl=harness
     output=mod._normalized_excerpt(b"<style>secret</style>Hello \xff world")
     assert 'secret' not in output and 'Hello' in output
+
+def test_consensus_result_revalidates_grounding_and_source_fingerprints(candidate,positive_findings):
+    import hashlib
+    mod,c,gl,sid,aid=candidate
+    url=c.get_application(aid)["sources"][0]
+    text=mod._normalized_excerpt(gl.pages[url].encode("utf-8"))
+    fp=hashlib.sha256(text.encode("utf-8")).hexdigest()
+    requirements=c.get_standard_version(sid,1)["requirements"]
+    result={"findings":positive_findings,"fingerprints":[fp],
+            "source_status":["FETCHED"],"evidence":[text]}
+    assert mod.validate_assessment_result(result,requirements,1)["fingerprints"]==[fp]
+
+    for changed in (
+        dict(result,fingerprints=["bad"]),
+        dict(result,evidence=[text+" changed"]),
+        dict(result,source_status=["UNAVAILABLE"]),
+        dict(result,findings=[dict(positive_findings[0],quote="fabricated evidence quote"),positive_findings[1]]),
+        dict(result,findings=[dict(positive_findings[0],source_index=7),positive_findings[1]]),
+        dict(result,findings=[dict(positive_findings[0],quality="UNVERIFIED"),positive_findings[1]]),
+    ):
+        with pytest.raises(UserError):
+            mod.validate_assessment_result(changed,requirements,1)

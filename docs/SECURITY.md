@@ -10,7 +10,7 @@
 | Link alias / duplicated self-evidence | Canonical URLs deduplicated within submission | Two unrelated URLs could repeat identical content; no cross-URL semantic dedupe in v1 |
 | SSRF | No private IP literals, localhost/local suffixes, credentials, nonstandard ports, fragments or major shorteners | DNS rebinding and redirects require network sandbox policy |
 | Prompt injection | Bounded quoted evidence supplied as data, independent validator re-evaluation | Cannot prove all malicious instructions are neutralized |
-| Leader manipulates fit | Validator independently judges and compares complete material tuple | Validator models could share biases/errors and still agree |
+| Leader manipulates fit | Validator independently judges and compares complete material tuple, including evidence source fingerprints; accepted judgments are fully revalidated after the nondeterministic boundary | Validator models could share biases/errors and still agree |
 | Divergent model decisions | Exact decision/quality agreement, no score tolerance that could flip mandatory gate | Higher consensus failure rate on ambiguous requirements |
 | Unavailable sources | Explicit UNAVAILABLE and unknown, no success inference from 404/errors | Models can still be wrong about source reliability or relevance |
 | Consensus rollback | No escrow, pending submission remains retryable | No guaranteed consensus or timed completion under chain failure |

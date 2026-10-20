@@ -193,6 +193,34 @@ def judgments_agree(leader: list, validator: list) -> bool:
     return True
 
 
+def validate_assessment_result(raw, requirements: list, source_count: int) -> dict:
+    """Revalidate the full accepted leader payload after the nondeterministic boundary."""
+    require(isinstance(raw, dict), "invalid consensus result")
+    findings = raw.get("findings")
+    fingerprints = raw.get("fingerprints")
+    source_status = raw.get("source_status")
+    evidence = raw.get("evidence")
+    require(isinstance(fingerprints, list) and len(fingerprints) == source_count,
+            "consensus fingerprints invalid")
+    require(isinstance(source_status, list) and len(source_status) == source_count,
+            "consensus source status invalid")
+    require(isinstance(evidence, list) and len(evidence) == source_count,
+            "consensus evidence invalid")
+    for text, fingerprint, status in zip(evidence, fingerprints, source_status):
+        require(isinstance(text, str), "consensus evidence must be text")
+        if status == "FETCHED":
+            require(bool(text) and isinstance(fingerprint, str)
+                    and re.fullmatch(r"[0-9a-f]{64}", fingerprint)
+                    and hashlib.sha256(text.encode("utf-8")).hexdigest() == fingerprint,
+                    "consensus evidence fingerprint invalid")
+        else:
+            require(status == "UNAVAILABLE" and text == "" and fingerprint == "",
+                    "consensus unavailable source invalid")
+    normalized = validate_judgment({"findings": findings}, requirements, evidence)
+    raw["findings"] = normalized
+    return raw
+
+
 def calculate_fit(requirements: list, findings: list) -> dict:
     """Pure deterministic policy; AI never sets result, score or payout."""
     require(len(requirements) == len(findings), "criteria/findings mismatch")
@@ -347,28 +375,27 @@ class Fitted(gl.Contract):
             )
             raw = gl.nondet.exec_prompt(prompt, response_format="json")
             findings = validate_judgment(raw, requirements, texts)
-            return {"findings": findings, "fingerprints": fingerprints, "source_status": source_status}
+            return {"findings": findings, "fingerprints": fingerprints,
+                    "source_status": source_status, "evidence": texts}
 
         def validate(leader_result) -> bool:
             if not isinstance(leader_result, gl.vm.Return):
                 return False
             try:
                 leader = leader_result.calldata
+                leader = validate_assessment_result(leader, requirements, len(sources))
                 own = assess()  # independent web fetch + independent model inference
                 return (isinstance(leader, dict)
                         and isinstance(leader.get("findings"), list)
                         and judgments_agree(leader["findings"], own["findings"])
-                        and leader.get("source_status") == own.get("source_status"))
+                        and leader.get("source_status") == own.get("source_status")
+                        and leader.get("fingerprints") == own.get("fingerprints"))
             except Exception:
                 return False
 
         result = gl.vm.run_nondet_unsafe(assess, validate)
-        require(isinstance(result, dict) and isinstance(result.get("findings"), list), "invalid consensus result")
+        result = validate_assessment_result(result, requirements, len(sources))
         findings = result["findings"]
-        require(len(findings) == len(requirements), "consensus result length invalid")
-        # Revalidate identifiers and decision/value domains after nondet boundary.
-        require([x.get("id") for x in findings] == [r["id"] for r in requirements], "consensus ids invalid")
-        require(all(x.get("decision") in STATUS and x.get("quality") in QUALITY for x in findings), "consensus decisions invalid")
         fit = calculate_fit(requirements, findings)
         digest = hashlib.sha256(_compact({"snapshot": snapshot, "sources": sources,
                                           "findings": findings}).encode("utf-8")).hexdigest()

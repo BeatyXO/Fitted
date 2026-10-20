@@ -1,0 +1,635 @@
+{
+  "collectedAt": "2026-10-20T09:11:52.252Z",
+  "network": {
+    "name": "GenLayer StudioNet",
+    "chainId": 61999,
+    "rpc": "https://studio.genlayer.com/api",
+    "explorer": "https://explorer-studio.genlayer.com"
+  },
+  "previousContractAddress": "0x299B9577A4b03efab9F760715ce6Db5437943cBe",
+  "contractAddress": "0xCFd6184ad5589a329E8F89984d2FfEc98607cD72",
+  "source": {
+    "path": "contracts/fitted_contract.py",
+    "sha256": "9abff3f3aeb83b6d2f69fb2c6032d7bbacc03bd627fd703bec9bcca4145e00b7",
+    "deployedSourceSha256": "9abff3f3aeb83b6d2f69fb2c6032d7bbacc03bd627fd703bec9bcca4145e00b7",
+    "deployedMatchesLocal": true,
+    "genvmVersion": "v0.2.16",
+    "genlayerCliVersion": "0.39.1",
+    "genlayerTestVersion": "0.29.2",
+    "genvmLinterVersion": "0.11.0",
+    "genlayerJsVersion": "1.1.8"
+  },
+  "deployment": {
+    "action": "deploy hardened contract",
+    "hash": "0x86dcf13826e0b0bf0dd055dddfa7d27fa41cbdf205da5e9bbc6dbcde416f71f2",
+    "status": "FINALIZED",
+    "consensusResult": "MAJORITY_AGREE",
+    "executionResult": "SUCCESS",
+    "validatorVotes": {
+      "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1": "agree",
+      "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e": "idle",
+      "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10": "agree",
+      "0xA712cB25a4002666FA9D09477251f238dD9e06b3": "idle",
+      "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21": "agree"
+    }
+  },
+  "lifecycle": [
+    {
+      "action": "create_standard Lifecycle FIT evidence",
+      "hash": "0xbd3191b852758f1a1a870559ba933a2865a1dcb3750dc2d7a6120cc4822e88e6",
+      "status": "FINALIZED",
+      "consensusResult": "MAJORITY_AGREE",
+      "executionResult": "SUCCESS",
+      "validatorVotes": {
+        "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1": "agree",
+        "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e": "idle",
+        "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10": "agree",
+        "0xa21bc502E3578E4b3039be8c59a257198f7c3f19": "agree",
+        "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21": "idle"
+      }
+    },
+    {
+      "action": "submit Lifecycle Python venv FIT",
+      "hash": "0x5e2a9efe617f304833eeebc50e46747ab9182b039da24cdee6addd8625a49dd7",
+      "status": "FINALIZED",
+      "consensusResult": "MAJORITY_AGREE",
+      "executionResult": "SUCCESS",
+      "validatorVotes": {
+        "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef": "agree",
+        "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05": "agree",
+        "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6": "idle",
+        "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004": "idle",
+        "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43": "agree"
+      }
+    },
+    {
+      "action": "revise FIT standard to v2",
+      "hash": "0x78a6d85a70ac5e4d95b1893fbf60633694039a8d8f96afa6cb6e7b310f4c17ae",
+      "status": "FINALIZED",
+      "consensusResult": "MAJORITY_AGREE",
+      "executionResult": "SUCCESS",
+      "validatorVotes": {
+        "0x0B50B270Eba5D9B780272C4Cf4720260177e761D": "agree",
+        "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef": "idle",
+        "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1": "idle",
+        "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004": "agree",
+        "0xf29b6947ed298d139FC2655DB15D868C9AbB3091": "agree"
+      }
+    },
+    {
+      "action": "evaluate APP-1 / FIT",
+      "hash": "0xf49b3541d89d59ebd8acdba6fd3c8636ac90ed468a3b03a960c8da505246035e",
+      "status": "FINALIZED",
+      "consensusResult": "MAJORITY_AGREE",
+      "executionResult": "SUCCESS",
+      "validatorVotes": {
+        "0x0B50B270Eba5D9B780272C4Cf4720260177e761D": "idle",
+        "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef": "agree",
+        "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb": "agree",
+        "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1": "agree",
+        "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004": "disagree"
+      }
+    },
+    {
+      "action": "submit Lifecycle Python venv conditional",
+      "hash": "0x391a85cee09192902cf0a13889dfc5dacb56faa842d8c2c5327d115130a8d03a",
+      "status": "FINALIZED",
+      "consensusResult": "MAJORITY_AGREE",
+      "executionResult": "SUCCESS",
+      "validatorVotes": {
+        "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00": "agree",
+        "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6": "agree",
+        "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10": "idle",
+        "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43": "idle",
+        "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21": "agree"
+      }
+    },
+    {
+      "action": "evaluate APP-2 / CONDITIONAL",
+      "hash": "0x856e9c8cdc8565668dbc8bf0c9e7e82d34822d3587be477edb5d671a2f7798b3",
+      "status": "FINALIZED",
+      "consensusResult": "MAJORITY_AGREE",
+      "executionResult": "SUCCESS",
+      "validatorVotes": {
+        "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05": "agree",
+        "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e": "agree",
+        "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44": "disagree",
+        "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004": "disagree",
+        "0xa21bc502E3578E4b3039be8c59a257198f7c3f19": "agree"
+      }
+    },
+    {
+      "action": "create_standard Lifecycle explicit contradiction",
+      "hash": "0xe56431d42c8cf743b9155fa98b8bc1a8bbd19e9b9dc92dc65ff6745efcc2cf3a",
+      "status": "FINALIZED",
+      "consensusResult": "MAJORITY_AGREE",
+      "executionResult": "SUCCESS",
+      "validatorVotes": {
+        "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef": "agree",
+        "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9": "agree",
+        "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb": "idle",
+        "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44": "idle",
+        "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43": "agree"
+      }
+    },
+    {
+      "action": "submit Lifecycle CPython default contradiction",
+      "hash": "0xb4b755551da618b8e9999a4a4b56dad1982050d7ed0eb7fbb826b4c5521a8283",
+      "status": "FINALIZED",
+      "consensusResult": "MAJORITY_AGREE",
+      "executionResult": "SUCCESS",
+      "validatorVotes": {
+        "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb": "agree",
+        "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05": "agree",
+        "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1": "idle",
+        "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004": "idle",
+        "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530": "agree"
+      }
+    },
+    {
+      "action": "evaluate APP-3 / UNFIT",
+      "hash": "0x42d1c253484ed1abd163237dcb3d0249ee247b1fa6716e3cf07f413749056c8f",
+      "status": "FINALIZED",
+      "consensusResult": "MAJORITY_AGREE",
+      "executionResult": "SUCCESS",
+      "validatorVotes": {
+        "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05": "agree",
+        "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e": "agree",
+        "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6": "idle",
+        "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004": "idle",
+        "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd": "agree"
+      }
+    },
+    {
+      "action": "create_standard Lifecycle inconclusive evidence",
+      "hash": "0x1631d662dad214df0b031ea85d05d97a58bd7ec24ce28001c10471eb432de523",
+      "status": "FINALIZED",
+      "consensusResult": "MAJORITY_AGREE",
+      "executionResult": "SUCCESS",
+      "validatorVotes": {
+        "0x0B50B270Eba5D9B780272C4Cf4720260177e761D": "agree",
+        "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e": "agree",
+        "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10": "agree",
+        "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530": "idle",
+        "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd": "idle"
+      }
+    },
+    {
+      "action": "submit Lifecycle unsupported hardware key claim",
+      "hash": "0xfdf1bd862078c5cefde5748d09c6d13ff14764cc855a24cc14a1d58b74c80f85",
+      "status": "FINALIZED",
+      "consensusResult": "MAJORITY_AGREE",
+      "executionResult": "SUCCESS",
+      "validatorVotes": {
+        "0x0B50B270Eba5D9B780272C4Cf4720260177e761D": "agree",
+        "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00": "idle",
+        "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb": "agree",
+        "0xA712cB25a4002666FA9D09477251f238dD9e06b3": "agree",
+        "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21": "idle"
+      }
+    },
+    {
+      "action": "evaluate APP-4 / UNVERIFIED",
+      "hash": "0x01ca5f6be3bbb6a9ddad029c74c3922d5347a7782d842dd8bd94c3307c5700d8",
+      "status": "FINALIZED",
+      "consensusResult": "MAJORITY_AGREE",
+      "executionResult": "SUCCESS",
+      "validatorVotes": {
+        "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9": "agree",
+        "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb": "disagree",
+        "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05": "agree",
+        "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44": "idle",
+        "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43": "agree"
+      }
+    },
+    {
+      "action": "repeat evaluation APP-1",
+      "hash": "0x6a3ce3b8ddbd86111df461b1d60923593a661d4b23934962df6789bc6014f299",
+      "status": "FINALIZED",
+      "consensusResult": "MAJORITY_AGREE",
+      "executionResult": "ERROR",
+      "validatorVotes": {
+        "0x0B50B270Eba5D9B780272C4Cf4720260177e761D": "agree",
+        "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05": "agree",
+        "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb": "agree",
+        "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e": "idle",
+        "0xa21bc502E3578E4b3039be8c59a257198f7c3f19": "agree"
+      }
+    },
+    {
+      "action": "retire FIT-1",
+      "hash": "0x5b9bfb121963e021fb06503718837486d8191c066bf37e50c6388695742ca28c",
+      "status": "FINALIZED",
+      "consensusResult": "MAJORITY_AGREE",
+      "executionResult": "SUCCESS",
+      "validatorVotes": {
+        "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00": "idle",
+        "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05": "agree",
+        "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1": "agree",
+        "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004": "agree",
+        "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10": "idle"
+      }
+    }
+  ],
+  "failureLogs": [
+    {
+      "hash": "0x9859da27569bd2b49af946b0782b0e7d48d2b73da55fc3605371e66719d8e749",
+      "status": "ACCEPTED",
+      "executionResult": "ERROR",
+      "error": "requirements must be JSON",
+      "stateChanged": false,
+      "note": "The malformed CLI argument was followed by a finalized zero-state read before the FIT-1 creation."
+    }
+  ],
+  "latestFinalizedReads": {
+    "schema": {
+      "ctor": {
+        "params": [],
+        "kwparams": {}
+      },
+      "methods": {
+        "create_standard": {
+          "params": [
+            [
+              "name",
+              "string"
+            ],
+            [
+              "purpose",
+              "string"
+            ],
+            [
+              "requirements_json",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "string",
+          "payable": false
+        },
+        "evaluate_candidate": {
+          "params": [
+            [
+              "application_id",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "string",
+          "payable": false
+        },
+        "get_application": {
+          "params": [
+            [
+              "application_id",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "dict"
+        },
+        "get_standard": {
+          "params": [
+            [
+              "standard_id",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "dict"
+        },
+        "get_standard_version": {
+          "params": [
+            [
+              "standard_id",
+              "string"
+            ],
+            [
+              "version",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "dict"
+        },
+        "get_stats": {
+          "params": [],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "dict"
+        },
+        "list_applications": {
+          "params": [
+            [
+              "offset",
+              "int"
+            ],
+            [
+              "count",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "dict"
+        },
+        "list_standards": {
+          "params": [
+            [
+              "offset",
+              "int"
+            ],
+            [
+              "count",
+              "int"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": true,
+          "ret": "dict"
+        },
+        "retire_standard": {
+          "params": [
+            [
+              "standard_id",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "null",
+          "payable": false
+        },
+        "revise_standard": {
+          "params": [
+            [
+              "standard_id",
+              "string"
+            ],
+            [
+              "purpose",
+              "string"
+            ],
+            [
+              "requirements_json",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "string",
+          "payable": false
+        },
+        "submit_candidate": {
+          "params": [
+            [
+              "standard_id",
+              "string"
+            ],
+            [
+              "name",
+              "string"
+            ],
+            [
+              "description",
+              "string"
+            ],
+            [
+              "sources_json",
+              "string"
+            ]
+          ],
+          "kwparams": {},
+          "readonly": false,
+          "ret": "string",
+          "payable": false
+        }
+      }
+    },
+    "stats": {
+      "candidates": 4,
+      "evaluations": 4,
+      "network_authority": "contract",
+      "product": "Fitted",
+      "standards": 3,
+      "uses_escrow": false,
+      "version": "1.0.0"
+    },
+    "standards": [
+      {
+        "active": false,
+        "created_at": 1792486166,
+        "current_version": 2,
+        "id": "FIT-1",
+        "name": "Lifecycle FIT evidence",
+        "owner": "0xd6423ae82a975d55c6ceac222827a727325e0459",
+        "purpose": "Exercise frozen versions and a conditional optional criterion on the hardened contract."
+      },
+      {
+        "active": true,
+        "created_at": 1792486693,
+        "current_version": 1,
+        "id": "FIT-2",
+        "name": "Lifecycle explicit contradiction",
+        "owner": "0xd6423ae82a975d55c6ceac222827a727325e0459",
+        "purpose": "Verify that explicit source contradiction produces an UNFIT certificate."
+      },
+      {
+        "active": true,
+        "created_at": 1792486817,
+        "current_version": 1,
+        "id": "FIT-3",
+        "name": "Lifecycle inconclusive evidence",
+        "owner": "0xd6423ae82a975d55c6ceac222827a727325e0459",
+        "purpose": "Verify that a claim absent from the source remains unknown."
+      }
+    ],
+    "applications": [
+      {
+        "applicant": "0xd6423ae82a975d55c6ceac222827a727325e0459",
+        "certificate": {
+          "digest": "7ff86f0ea74589b024b298735091e45a039b34557dadc9b7c249112e6bc4d68e",
+          "failed": 0,
+          "findings": [
+            {
+              "decision": "SATISFIED",
+              "id": "venv_docs",
+              "quality": "DIRECT",
+              "quote": "The venv module supports creating lightweight “virtual environments”",
+              "reason": "Official Python documentation explicitly states the venv module creates lightweight virtual environments, satisfying the requirement.",
+              "source_index": 0
+            }
+          ],
+          "id": "APP-1",
+          "issued_at": 1792486552,
+          "issuer": "GenLayer consensus",
+          "outcome": "FIT",
+          "satisfied": 1,
+          "score": 100,
+          "source_hashes": [
+            "1f2e4bcf21bc9cae8b663be53972a7ed2da12c19f75d33d9e238d275b1e244de"
+          ],
+          "source_status": [
+            "FETCHED"
+          ],
+          "standard_id": "FIT-1",
+          "unknown": 0,
+          "version": 1
+        },
+        "description": "The official Python venv documentation is evaluated for its documented behavior.",
+        "evaluated_at": 1792486552,
+        "id": "APP-1",
+        "name": "Lifecycle Python venv FIT",
+        "sources": [
+          "https://docs.python.org/3/library/venv.html"
+        ],
+        "standard_id": "FIT-1",
+        "standard_version": 1,
+        "status": "EVALUATED",
+        "submitted_at": 1792486471
+      },
+      {
+        "applicant": "0xd6423ae82a975d55c6ceac222827a727325e0459",
+        "certificate": {
+          "digest": "e3d4d96e5dd9c6da2a6ba8ba9f4f9dbf814d5b50a830bb9b8e220f3a3be8437f",
+          "failed": 0,
+          "findings": [
+            {
+              "decision": "SATISFIED",
+              "id": "venv_docs",
+              "quality": "DIRECT",
+              "quote": "The venv module supports creating lightweight “virtual environments”",
+              "reason": "The documentation explicitly states that the venv module supports creating lightweight virtual environments.",
+              "source_index": 0
+            },
+            {
+              "decision": "UNKNOWN",
+              "id": "gui",
+              "quality": "UNVERIFIED",
+              "quote": "",
+              "reason": "The provided source does not mention or document a graphical interface for managing virtual environments.",
+              "source_index": -1
+            }
+          ],
+          "id": "APP-2",
+          "issued_at": 1792486641,
+          "issuer": "GenLayer consensus",
+          "outcome": "CONDITIONAL",
+          "satisfied": 1,
+          "score": 71,
+          "source_hashes": [
+            "1f2e4bcf21bc9cae8b663be53972a7ed2da12c19f75d33d9e238d275b1e244de"
+          ],
+          "source_status": [
+            "FETCHED"
+          ],
+          "standard_id": "FIT-1",
+          "unknown": 1,
+          "version": 2
+        },
+        "description": "The second candidate has primary documentation but no documented graphical interface.",
+        "evaluated_at": 1792486641,
+        "id": "APP-2",
+        "name": "Lifecycle Python venv conditional",
+        "sources": [
+          "https://docs.python.org/3/library/venv.html"
+        ],
+        "standard_id": "FIT-1",
+        "standard_version": 2,
+        "status": "EVALUATED",
+        "submitted_at": 1792486602
+      },
+      {
+        "applicant": "0xd6423ae82a975d55c6ceac222827a727325e0459",
+        "certificate": {
+          "digest": "dc43a1f0798262a15e2ae26d45f67ae95db5f64001ae88a8d6bb3802935e94ad",
+          "failed": 1,
+          "findings": [
+            {
+              "decision": "NOT_SATISFIED",
+              "id": "site_packages",
+              "quality": "DIRECT",
+              "quote": "By default, the builder makes the system (global) site-packages dir *un*available to the created environment.",
+              "reason": "The source code documentation for CPython's EnvBuilder explicitly states that it disables system site-packages by default, contradicting the requirement.",
+              "source_index": 0
+            }
+          ],
+          "id": "APP-3",
+          "issued_at": 1792486771,
+          "issuer": "GenLayer consensus",
+          "outcome": "UNFIT",
+          "satisfied": 0,
+          "score": 0,
+          "source_hashes": [
+            "f38a345df6e67e5da610141083b4ff57a1a2323c1c554b69639e40f23c993663"
+          ],
+          "source_status": [
+            "FETCHED"
+          ],
+          "standard_id": "FIT-2",
+          "unknown": 0,
+          "version": 1
+        },
+        "description": "The official CPython implementation is inspected for its default environment settings.",
+        "evaluated_at": 1792486771,
+        "id": "APP-3",
+        "name": "Lifecycle CPython default contradiction",
+        "sources": [
+          "https://raw.githubusercontent.com/python/cpython/main/Lib/venv/__init__.py"
+        ],
+        "standard_id": "FIT-2",
+        "standard_version": 1,
+        "status": "EVALUATED",
+        "submitted_at": 1792486732
+      },
+      {
+        "applicant": "0xd6423ae82a975d55c6ceac222827a727325e0459",
+        "certificate": {
+          "digest": "b153dbb6e337caba600331eeca778a1c44c1bc58644f764f5c4130b06eaf8725",
+          "failed": 0,
+          "findings": [
+            {
+              "decision": "UNKNOWN",
+              "id": "hardware_key",
+              "quality": "UNVERIFIED",
+              "quote": "",
+              "reason": "The cited Python venv documentation excerpt describes creating lightweight virtual environments and contains no statement that venv encrypts environments or uses a hardware-backed key; absence of proof is not contradiction.",
+              "source_index": -1
+            }
+          ],
+          "id": "APP-4",
+          "issued_at": 1792486896,
+          "issuer": "GenLayer consensus",
+          "outcome": "UNVERIFIED",
+          "satisfied": 0,
+          "score": 0,
+          "source_hashes": [
+            "1f2e4bcf21bc9cae8b663be53972a7ed2da12c19f75d33d9e238d275b1e244de"
+          ],
+          "source_status": [
+            "FETCHED"
+          ],
+          "standard_id": "FIT-3",
+          "unknown": 1,
+          "version": 1
+        },
+        "description": "The Python documentation does not establish a hardware-backed encryption claim.",
+        "evaluated_at": 1792486896,
+        "id": "APP-4",
+        "name": "Lifecycle unsupported hardware key claim",
+        "sources": [
+          "https://docs.python.org/3/library/venv.html"
+        ],
+        "standard_id": "FIT-3",
+        "standard_version": 1,
+        "status": "EVALUATED",
+        "submitted_at": 1792486856
+      }
+    ]
+  }
+}

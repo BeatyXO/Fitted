@@ -1,6 +1,6 @@
 # Fitted StudioNet deployment and acceptance runbook
 
-**StudioNet deployment and core lifecycle completed** at `0x299B9577A4b03efab9F760715ce6Db5437943cBe`; evidence is in [`../deployments/studionet.json`](../deployments/studionet.json) and [`../deployments/lifecycle_transactions.json`](../deployments/lifecycle_transactions.json). Real finalized transactions now demonstrate FIT, CONDITIONAL, UNFIT, and UNVERIFIED; standard creation, revision with a pinned prior version, duplicate-evaluation rejection, and retirement were verified by post-finalization reads. The remaining release gates are public Vercel deployment, wallet-signed browser acceptance, and follow-up security/stress review. The procedures below remain the reproducible runbook.
+**Hardened StudioNet deployment and core lifecycle completed** at `0xCFd6184ad5589a329E8F89984d2FfEc98607cD72`; see [`../deployments/studionet_hardened.json`](../deployments/studionet_hardened.json) for the source hash, finalized deployment and lifecycle receipts, validator votes, and state readbacks. The earlier deployment is retained as history. The hardened source compares evidence fingerprints across validators and revalidates accepted judgments after the nondeterministic boundary. Local frontend checks and live read-only chain interaction passed. The user will publish the frontend to Vercel; additional adversarial security and stress review remain useful follow-up.
 
 ## Preparation
 
@@ -12,7 +12,8 @@
 ## Static and GenVM checks
 
 ```bash
-python -m pytest tests/ -q
+python -m pytest tests/ --ignore=tests/test_direct.py -q
+python -m pytest tests/test_direct.py -q
 python -m py_compile contracts/fitted_contract.py
 node --check frontend/app.js
 # Pin the exact deployed runner for the GenVM linter (PowerShell):

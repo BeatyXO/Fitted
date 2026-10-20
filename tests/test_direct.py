@@ -153,6 +153,13 @@ def test_direct_validator_rechecks_material_decision_and_source_mutation(direct_
     assert direct_vm.run_validator()
 
     direct_vm.clear_mocks()
+    # Same classifications and grounded quote, but the retrieved page changed.
+    # Consensus must bind the leader and validator to identical evidence bytes.
+    direct_vm.mock_web(r"docs\.example\.org/product", {"status": 200, "body": PAGE + " A newly changed claim."})
+    direct_vm.mock_llm(r"You are checking FIT", json.dumps({"findings": [finding()]}))
+    assert not direct_vm.run_validator()
+
+    direct_vm.clear_mocks()
     direct_vm.mock_web(r"docs\.example\.org/product", {"status": 200, "body": "A different page with no matching claim."})
     direct_vm.mock_llm(r"You are checking FIT", json.dumps({"findings": [
         finding("UNKNOWN", quality="UNVERIFIED", index=-1, quote="")]}))
@@ -172,4 +179,4 @@ def test_direct_input_guards_reads_pagination_and_retirement(direct_vm, direct_d
     assert contract.list_standards(0, 24)["items"][0]["id"] == sid
     direct_vm.sender = direct_bob
     with direct_vm.expect_revert("only standard owner"):
-        contract.retire_standard(sid)\n
+        contract.retire_standard(sid)

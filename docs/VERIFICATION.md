@@ -1,24 +1,20 @@
-# Verification log — 2026-10-19
+# Verification log — 2026-10-20
 
 ## Confirmed
 
-- GenVM linter `0.11.0`, explicitly pinned to `GENVM_VERSION=v0.2.16`: lint passed 3 checks; contract validation recognized `Fitted` with 11 methods (6 views, 5 writes); typecheck reported no errors or warnings; schema generation succeeded.
+- GenVM linter `0.11.0`, pinned to `GENVM_VERSION=v0.2.16`: lint passed 3 checks; validation recognized `Fitted` with 11 methods (6 views, 5 writes); typecheck reported no errors; schema generation succeeded.
 - Actual `genlayer-test 0.29.2` Direct Mode: **7 passed**. Coverage includes authorization, immutable version pins, all four outcomes, unavailable sources, quote grounding, semantic validator rechecks, source mutation, replay rejection, duplicate URLs, non-public URLs, and pagination bounds. Direct Mode is in-process and does not prove StudioNet consensus.
-- Offline contract-boundary suite using the explicitly labeled GenLayer stand-in: **69 passed**. Separate from the Direct Mode count.
-- Python syntax compile passed.
-- Frontend package pins `genlayer-js 1.1.8` and Vite `6.4.4`; production build bundles the SDK locally. Node wallet suite: **10 passed**. `npm audit` reported 0 known vulnerabilities after the Vite update.
-- Chromium inspection of the built frontend at 375px and 1440px found no horizontal overflow; the app displayed its actual empty on-chain registry. The dedicated Playwright smoke script could not run because Python Playwright is unavailable.
-- StudioNet deployment finalized at `0x299B9577A4b03efab9F760715ce6Db5437943cBe`, tx `0xea2d3bf0b016742fe10e34e41fba1052855086f74fdd80b449bcd4467443e861`. Five validators committed/revealed; three agreed and two were idle. Execution succeeded, no value was credited, and deployed source hash matched the local contract hash. See [`../deployments/studionet.json`](../deployments/studionet.json).
-- Initial post-deployment reads returned the expected 11-method schema and an empty registry; subsequent lifecycle reads are recorded below.
-- Full StudioNet lifecycle completed on the deployed contract. Four outcome certificates finalized: APP-1 `FIT`, APP-2 `CONDITIONAL`, APP-4 `UNFIT`, APP-5 `UNVERIFIED`; APP-3 also finalized as `UNVERIFIED` on an earlier isolation claim. Each certificate was read back after finality with a fetched-source fingerprint and grounded quote for decisive findings. Final chain stats: **4 standards, 5 candidates, 5 evaluations**.
-- FIT-1 revision finalized at v2; APP-1 remains pinned to v1 and APP-2 is pinned to v2. FIT-1 retirement finalized with `active: false`; APP-1 and APP-2 certificates remain readable. A second evaluation of APP-1 finalized as a contract rollback with `candidate already evaluated`, leaving the original FIT certificate unchanged.
-- Sanitized transaction statuses, consensus votes, and lifecycle hashes are recorded in [`../deployments/lifecycle_transactions.json`](../deployments/lifecycle_transactions.json). The raw CLI receipt logs were not included because they contain verbose validator runtime configuration; the saved proof contains only transaction status, result, execution summaries, and votes.
+- Offline contract-boundary suite using the labeled GenLayer stand-in: **70 passed**. Python compile checks passed.
+- Frontend package pins `genlayer-js 1.1.8` and Vite `6.4.4`; production build passed. Node wallet suite: **10 passed**. `npm audit --omit=optional` reported 0 known vulnerabilities.
+- Chromium inspection of localhost at 375px and 1440px found no horizontal overflow. The local app was checked against finalized StudioNet state, including the live FIT certificate, its grounded quote and source fingerprint. No browser console errors were observed. Dedicated Playwright smoke automation remains unavailable in this environment.
+- Hardened StudioNet deployment finalized at `0xCFd6184ad5589a329E8F89984d2FfEc98607cD72`; tx `0x86dcf13826e0b0bf0dd055dddfa7d27fa41cbdf205da5e9bbc6dbcde416f71f2`. Five validators committed/revealed; execution succeeded. Deployed source SHA-256 exactly matches local source: `9abff3f3aeb83b6d2f69fb2c6032d7bbacc03bd627fd703bec9bcca4145e00b7`. See [`../deployments/studionet_hardened.json`](../deployments/studionet_hardened.json).
+- Hardened contract lifecycle finalized: FIT, CONDITIONAL, UNFIT, and UNVERIFIED certificates; standard revision with prior-version pinning; duplicate-evaluation rollback preserving the original certificate; standard retirement with historical certificates retained. Final reads: **3 standards, 4 candidates, 4 evaluations**. Every lifecycle receipt and vote breakdown is saved in the hardened deployment proof. The earlier deployment record is preserved separately.
+- The security patch compares validator-observed source fingerprints and fully revalidates the accepted judgments after the nondeterministic boundary.
+- The completed source and deployment evidence are published in the authorized repository: [github.com/BeatyXO/Fitted](https://github.com/BeatyXO/Fitted).
 
-## Still outstanding
+## Remaining follow-up
 
-- Full independent reproduction on a second wallet/provider and a broader adversarial evidence corpus.
-- Production Vercel deployment and live URL. The user intends to deploy this themselves.
-- GitHub publication. This folder has no `.git` repository or configured remote. `gh auth status` reports both saved GitHub accounts have invalid tokens. No destination repository URL is specified, so no authorized push can currently be completed.
-- Playwright E2E suite and wallet-signed browser transactions.
+- The user will publish the frontend to Vercel. No Vercel deployment has been made.
+- A second-wallet/provider reproduction and broader adversarial evidence corpus remain useful follow-up work. Wallet-signed browser writes were not used for lifecycle testing; direct SDK writes were finalized and independently read back on StudioNet.
 
-No numerical audit score is assigned. Test categories are not combined into a claim of StudioNet lifecycle success. The live evidence available is deployment finality plus read-only state, not successful product lifecycle transactions.
+No numerical audit score is assigned. Test categories are reported separately; only the finalized chain lifecycle is described as StudioNet success.

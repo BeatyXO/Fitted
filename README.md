@@ -2,7 +2,7 @@
 
 **Fitted is not a dispute court.** It is a versioned suitability protocol for evaluating products, services, agents, and technical solutions against explicit human requirements. Applicants publish documentary evidence. Every GenLayer validator independently fetches the same public evidence, interprets each requirement, and agrees on material decision fields. Contract code—not the LLM—computes the final certificate.
 
-**Status:** deployed to GenLayer StudioNet (chain 61999). GenVM lint, schema validation, typecheck, Direct Mode checks, and finalized proof for all four certificate outcomes and the core standard lifecycle are recorded in [`deployments/studionet.json`](deployments/studionet.json) and [`deployments/lifecycle_transactions.json`](deployments/lifecycle_transactions.json). The frontend is built locally and ready for user-managed Vercel deployment. See [`docs/VERIFICATION.md`](docs/VERIFICATION.md) for categorized evidence and remaining limits.
+**Status:** hardened contract deployed to GenLayer StudioNet (chain 61999) at `0xCFd6184ad5589a329E8F89984d2FfEc98607cD72`. The source fingerprint and finalized lifecycle proof are recorded in [`deployments/studionet_hardened.json`](deployments/studionet_hardened.json); earlier deployments remain in their historical records. GenVM lint, schema validation, typecheck, Direct Mode checks, and all four certificate outcomes have been verified. The frontend is built locally and ready for user-managed Vercel deployment. See [`docs/VERIFICATION.md`](docs/VERIFICATION.md) for categorized evidence and remaining limits.
 
 ## Product differentiation
 
@@ -23,7 +23,7 @@ Crossbench (reference: https://github.com/zoefunds/Crossbench) is a two-party, s
 
 - `contracts/fitted_contract.py` — standalone, self-contained GenLayer Intelligent Contract
 - `frontend/index.html`, `frontend/styles.css`, `frontend/app.js` — responsive, wallet-connected dashboard
-- `tests/` — 69 passing offline Python tests using a **clearly labeled GenLayer interface stand-in**, NOT real GenVM
+- `tests/` — 70 passing offline Python tests using a **clearly labeled GenLayer interface stand-in**, NOT real GenVM
 - `docs/ARCHITECTURE.md` — trust boundaries and data model
 - `docs/CONTRACT_SPEC.md` — precise method interface and policy calculations
 - `docs/SECURITY.md` — attack surface, threat model, and limitations
@@ -98,5 +98,5 @@ The project benchmarked the publicly available Crossbench source and GenLayer's 
 
 ## v1.1 wallet and UI hardening
 
-See docs/FRONTEND_WALLET.md. Local suite: 69 Python offline boundary tests and 7 Direct Mode tests; 10 Node wallet tests. The SDK is pinned and bundled locally. Deployment and read-only registry reads finalized on StudioNet; live lifecycle writes and production hosting remain outstanding.
+See docs/FRONTEND_WALLET.md. Local suite: 70 Python offline boundary tests and 7 Direct Mode tests; 10 Node wallet tests. The SDK is pinned and bundled locally. Lifecycle writes finalized on the hardened StudioNet deployment; the frontend has been exercised locally against live chain state. Production hosting remains user-managed.
 
