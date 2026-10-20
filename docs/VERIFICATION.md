@@ -32,10 +32,10 @@
 
 - GitHub repository: [BeatyXO/Fitted](https://github.com/BeatyXO/Fitted), `main`.
 - The previously inspected failed run was [39409434960](https://github.com/BeatyXO/Fitted/actions/runs/39409434960). Its browser job evaluated raw ES module source with `page.evaluate`, causing `Cannot use 'import.meta' outside a module`. The replacement smoke test runs the built Vite app through `vite preview` and Chromium.
-- Prior green main commit `4c7e53b563df9df99007f48fddee7ba39c6dba39` passed [GitHub Actions run 39414616049](https://github.com/BeatyXO/Fitted/actions/runs/39414616049), with all four jobs green. The receipt fix and updated records are pending commit and a new CI run.
+- Receipt fix commit `0ac820e459a5f26cabfc3bf19e0d36d9e3db45bc` passed [GitHub Actions run 39416474604](https://github.com/BeatyXO/Fitted/actions/runs/39416474604); all four jobs (`contract-offline`, `contract-direct`, `wallet-ui`, and `browser-responsive`) were green. CI uses clean `npm ci`, runs the frontend production build and audit, and executes Chromium against the Vite-served build.
 - Vercel production: [fitted-lake.vercel.app](https://fitted-lake.vercel.app/).
 - Contract explorer: [StudioNet contract page](https://explorer-studio.genlayer.com/address/0xCFd6184ad5589a329E8F89984d2FfEc98607cD72).
 
 ## Remaining work and limitations
 
-The complete production standard → candidate → evaluation lifecycle has not been run; only one user-approved standard creation transaction was performed. The receipt fix must be pushed, its final GitHub Actions run must pass, and that build must be deployed and verified on Vercel. Disconnect/reconnect and adversarial/pending-recovery production checks remain outstanding. Submission readiness is not declared.
+The complete production standard → candidate → evaluation lifecycle has not been run; only one user-approved standard creation transaction was performed. The receipt fix passed CI and was pushed, but its deployment and receipt display still need verification on Vercel. Disconnect/reconnect and adversarial/pending-recovery production checks remain outstanding. Submission readiness is not declared.
