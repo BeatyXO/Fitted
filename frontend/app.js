@@ -3,7 +3,7 @@ import { WalletSession, STUDIO_CHAIN_HEX, STUDIO_CHAIN_ID, STUDIO_RPC, RECONNECT
 const NETWORK = { id: 61999, name: 'GenLayer StudioNet', rpcUrls: { default: { http: ['https://studio.genlayer.com/api'] } }, nativeCurrency: { name: 'GEN', symbol: 'GEN', decimals: 18 }, testnet: true };
 const PENDING_TX_KEY = 'fitted:pending-tx:v1';
 const query = new URLSearchParams(location.search);
-const initialContract = query.get('contract') || window.FITTED_CONTRACT_ADDRESS || localStorage.getItem('fitted:contract:v1') || ''; 
+const initialContract = query.get('contract') || import.meta.env.VITE_CONTRACT_ADDRESS || window.FITTED_CONTRACT_ADDRESS || localStorage.getItem('fitted:contract:v1') || '';
 const state = { chainId: '', walletMenuOpen: false, readEpoch: 0, route: 'overview', contract: /^0x[a-fA-F0-9]{40}$/.test(initialContract) ? initialContract : '', wallet: '', busy: false, stats: null, standards: [], applications: [], standard: null, application: null, standardVersion: null, error: '', sdk: null, ruleCount: 2, sourceCount: 2, revisionMode: false, compareKey: '', totals: {standards:0,applications:0} };
 const $ = selector => document.querySelector(selector);
 const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

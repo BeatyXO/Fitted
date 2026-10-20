@@ -57,7 +57,7 @@ Perform **at least** the following actions using funded testnet wallets. Preserv
 
 `frontend/` pins `genlayer-js@1.1.8` and Vite in its lockfile and bundles the SDK locally. The production build and frontend tests have passed. The user plans to publish the built frontend to Vercel after handoff. Never switch successful transaction status to a submitted or merely accepted stage.
 
-After a verified deployment, publish the frontend to a static host with HTTPS. Users can set its contract address in the form, or share a verified URL such as `https://your-host.example/?contract=0x...#/overview`. Do not supply an invented default address.
+After a verified deployment, publish the frontend to a static host with HTTPS. On Vercel, optionally set `VITE_CONTRACT_ADDRESS` to the deployed contract address for the Production, Preview, and Development environments you use, then redeploy. The frontend also accepts a `?contract=0x...` URL parameter, which overrides the environment value, or the address can be entered in the dashboard. Do not supply an invented default address.
 
 ## Provenance checklist to include in the final submission
 
@@ -72,3 +72,6 @@ After a verified deployment, publish the frontend to a static host with HTTPS. U
 ## Rollback
 
 Fitted v1 contracts are not upgradeable in place. If a critical issue is found, cease creating new standards on that deployment, publish a new versioned contract address, and clearly mark prior certificates as legacy in the frontend. Existing old-chain records remain public; a new deployment does not silently migrate or revoke them. There is no user escrow to recover, but gas and previously published records cannot be rolled back.
+
+
+
