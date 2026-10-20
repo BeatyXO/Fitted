@@ -11,10 +11,10 @@
 - Hardened contract lifecycle finalized: FIT, CONDITIONAL, UNFIT, and UNVERIFIED certificates; standard revision with prior-version pinning; duplicate-evaluation rollback preserving the original certificate; standard retirement with historical certificates retained. Final reads: **3 standards, 4 candidates, 4 evaluations**. Every lifecycle receipt and vote breakdown is saved in the hardened deployment proof. The earlier deployment record is preserved separately.
 - The security patch compares validator-observed source fingerprints and fully revalidates the accepted judgments after the nondeterministic boundary.
 - The completed source and deployment evidence are published in the authorized repository: [github.com/BeatyXO/Fitted](https://github.com/BeatyXO/Fitted).
+- The Vercel deployment is live at [fitted-lake.vercel.app](https://fitted-lake.vercel.app/). Browser inspection confirmed the app loads the hardened contract and displays its live registry counts: 3 standards, 4 candidates, 4 evaluations.
 
 ## Remaining follow-up
 
-- The user will publish the frontend to Vercel. No Vercel deployment has been made.
 - A second-wallet/provider reproduction and broader adversarial evidence corpus remain useful follow-up work. Wallet-signed browser writes were not used for lifecycle testing; direct SDK writes were finalized and independently read back on StudioNet.
 
 No numerical audit score is assigned. Test categories are reported separately; only the finalized chain lifecycle is described as StudioNet success.

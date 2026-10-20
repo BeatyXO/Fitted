@@ -55,7 +55,7 @@ Perform **at least** the following actions using funded testnet wallets. Preserv
 
 ## Frontend
 
-`frontend/` pins `genlayer-js@1.1.8` and Vite in its lockfile and bundles the SDK locally. The production build and frontend tests have passed. The user plans to publish the built frontend to Vercel after handoff. Never switch successful transaction status to a submitted or merely accepted stage.
+`frontend/` pins `genlayer-js@1.1.8` and Vite in its lockfile and bundles the SDK locally. The production build and frontend tests have passed. The site is live at [https://fitted-lake.vercel.app/](https://fitted-lake.vercel.app/) and displays the hardened deployment’s live registry. Never switch successful transaction status to a submitted or merely accepted stage.
 
 After a verified deployment, publish the frontend to a static host with HTTPS. On Vercel, optionally set `VITE_CONTRACT_ADDRESS` to the deployed contract address for the Production, Preview, and Development environments you use, then redeploy. The frontend also accepts a `?contract=0x...` URL parameter, which overrides the environment value, or the address can be entered in the dashboard. Do not supply an invented default address.
 

@@ -2,7 +2,7 @@
 
 **Fitted is not a dispute court.** It is a versioned suitability protocol for evaluating products, services, agents, and technical solutions against explicit human requirements. Applicants publish documentary evidence. Every GenLayer validator independently fetches the same public evidence, interprets each requirement, and agrees on material decision fields. Contract code—not the LLM—computes the final certificate.
 
-**Status:** hardened contract deployed to GenLayer StudioNet (chain 61999) at `0xCFd6184ad5589a329E8F89984d2FfEc98607cD72`. The source fingerprint and finalized lifecycle proof are recorded in [`deployments/studionet_hardened.json`](deployments/studionet_hardened.json); earlier deployments remain in their historical records. GenVM lint, schema validation, typecheck, Direct Mode checks, and all four certificate outcomes have been verified. The frontend is built locally and ready for user-managed Vercel deployment. See [`docs/VERIFICATION.md`](docs/VERIFICATION.md) for categorized evidence and remaining limits.
+**Status:** hardened contract deployed to GenLayer StudioNet (chain 61999) at `0xCFd6184ad5589a329E8F89984d2FfEc98607cD72`. The live frontend is [fitted-lake.vercel.app](https://fitted-lake.vercel.app/), configured to read this deployment. The source fingerprint and finalized lifecycle proof are recorded in [`deployments/studionet_hardened.json`](deployments/studionet_hardened.json); earlier deployments remain in their historical records. GenVM lint, schema validation, typecheck, Direct Mode checks, and all four certificate outcomes have been verified. See [`docs/VERIFICATION.md`](docs/VERIFICATION.md) for categorized evidence and remaining limits.
 
 ## Product differentiation
 
